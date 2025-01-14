@@ -117,6 +117,7 @@ class Flower(pg.sprite.Sprite):#继承自sprite
         # 更新血条
         self.blood.update()
         self.mask = pg.mask.from_surface(self.image)
+        MOD.ensure_entity_in_screen(self)
 
     def attack(self):
 

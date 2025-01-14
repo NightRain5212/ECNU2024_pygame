@@ -158,6 +158,7 @@ class Warrant(pygame.sprite.Sprite):#继承自sprite
 
         # 更新血条
         self.blood.update()
+        MOD.ensure_entity_in_screen(self)
 
 class puppet(pygame.sprite.Sprite):
 

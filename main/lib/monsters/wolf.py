@@ -155,6 +155,7 @@ class DarkWolf(pg.sprite.Sprite):
         #火球依赖某一个精灵族更新
         self.blood.update()
         self.fire_manager.update()
+        MOD.ensure_entity_in_screen(self)
 
 class Fire(pg.sprite.Sprite):
     def __init__(self, monster):

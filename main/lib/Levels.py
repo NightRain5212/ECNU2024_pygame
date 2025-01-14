@@ -141,6 +141,10 @@ class Level:
             pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
         for sprite in self.objects:
             pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
+        # for sprite in self.enemymagic:
+        #     pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
+        # for sprite in self.player_magic:
+        #     pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
         pg.draw.rect(self.screen, RED, self.camera.apply(self.player), 1)
         for sprite in self.enemies:
             if sprite.alive():

@@ -155,6 +155,7 @@ class Box(pygame.sprite.Sprite):#继承自sprite
             self.mask = pg.mask.from_surface(self.image)
         # 更新血条
         self.blood.update()
+        MOD.ensure_entity_in_screen(self)
 
 
 

@@ -177,7 +177,7 @@ def Check_Tile_Collision(entity, tiles, dx, dy):
     for tile in tiles:
         if tile.rect.colliderect(entity.rect.x + dx, entity.rect.y-1, entity.rect.width, entity.rect.height):
            if entity.onground ==True:
-                entity.vy=-18#水平上撞到东西
+                entity.vy=-15#水平上撞到东西
                 entity.onground=False#直接跳起来
            else:dx=0 #直到坠落
         elif tile.rect.colliderect(entity.rect.x, entity.rect.y + dy, entity.rect.width, entity.rect.height):
@@ -281,3 +281,9 @@ def check_fraction_collision(entity,fractions):
         if entity.rect.colliderect(fraction.rect):
             return fraction
     return False
+
+def ensure_entity_in_screen(entity):
+    if entity.rect.y <= 0:
+        entity.rect.y = 0
+    if entity.rect.left <=0:
+        entity.rect.left = 0 

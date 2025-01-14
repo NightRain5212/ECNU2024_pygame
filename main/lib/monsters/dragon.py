@@ -312,6 +312,7 @@ class Dragon(pg.sprite.Sprite):
         self.update_position()
         self.attack()
         self.blood.update()
+        MOD.ensure_entity_in_screen(self)
 
 class Fireball(pg.sprite.Sprite):
     def __init__(self,monster):

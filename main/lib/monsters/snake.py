@@ -131,4 +131,5 @@ class Snake(pg.sprite.Sprite):
                 self.status = "walk"
         self.blood.update()
         self.update_animation()
+        MOD.ensure_entity_in_screen(self)
         
