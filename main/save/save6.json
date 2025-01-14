@@ -1,0 +1,71 @@
+{
+  "date": "2025-01-14 19:59:48",
+  "level_locks": {
+    "level1": true,
+    "level2": true,
+    "level3": true,
+    "level4": true,
+    "level5": true,
+    "level6": true
+  },
+  "player_lv": 6,
+  "levels": {
+    "level1": {
+      "player": {
+        "hp": 40.0,
+        "mp": 100.0,
+        "position": [
+          10095,
+          5
+        ]
+      },
+      "enemies": []
+    },
+    "level2": {
+      "player": {
+        "hp": 100.0,
+        "mp": 140.0,
+        "position": [
+          10345,
+          607
+        ]
+      },
+      "enemies": []
+    },
+    "level3": {
+      "player": {
+        "hp": 110.15999999999826,
+        "mp": 180.0,
+        "position": [
+          10230,
+          643
+        ]
+      },
+      "enemies": []
+    },
+    "level4": {
+      "player": {
+        "hp": 180.00000000000003,
+        "mp": 220.00000000000003,
+        "position": [
+          10505,
+          340
+        ]
+      },
+      "enemies": []
+    },
+    "level5": {
+      "player": {
+        "hp": 108.07999999999925,
+        "mp": 78.31499999999244,
+        "position": [
+          6910,
+          469
+        ]
+      },
+      "enemies": []
+    }
+  },
+  "magic_lock": false,
+  "cure_lock": false
+}

@@ -1,0 +1,7 @@
+-main:
+  -lib(库函数)
+  -mapseed(地图种子)
+  -save(存档)
+  -src(素材图片)
+  -main.py(游戏执行主体)
+  -settings.py(参数设置)
