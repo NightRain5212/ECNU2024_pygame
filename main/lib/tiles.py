@@ -72,7 +72,9 @@ TILES = {
     61:{"name": "wood", "type": "decoration", "size": (30, 30), "image": os.path.join(ASSETS_DIR, 'wood.png')},
     62:{"name": "fragment", "type": "object", "size": (60, 60), "image": os.path.join(ASSETS_DIR, 'fragment.png')},
     63: {"name": "Precious_box", "type": "prop", "size": (60, 60),"image": os.path.join(ASSETS_DIR, 'precious_box.png')},
-    64: {"name": "lucky_rain", "type": "prop", "size": (120, 120), "image": os.path.join(ASSETS_DIR, 'lucky_rain.png')}}
+    64: {"name": "lucky_rain", "type": "prop", "size": (120, 120), "image": os.path.join(ASSETS_DIR, 'lucky_rain.png')},
+    65: {"name": "firegiant", "type": "enemy", "size": (120, 200), "image": os.path.join(ASSETS_DIR, 'firetile.png')},
+    }
 
 
 class Tile(pg.sprite.Sprite):

@@ -12,6 +12,7 @@ from lib.monsters.Warrant import Warrant
 from lib.monsters.zhiyin_box import Box
 from lib.monsters.dragon import Dragon
 from lib.monsters.prop import  precious_box,Luckycloud
+from lib.monsters.firegiant import Firegiant
 class Level:
     # 初始化关卡
     def __init__(self,game,num):
@@ -116,6 +117,11 @@ class Level:
                             MOD.set_position(dragon, rect_x, rect_y)
                             self.enemies.add(dragon)
                             self.boss = dragon
+                        elif tiles.TILES[tile]["name"] == "firegiant":
+                            firegiant = Firegiant(self)
+                            MOD.set_position(firegiant, rect_x, rect_y)
+                            self.enemies.add(firegiant)
+                            self.boss = firegiant
                     elif tiles.TILES[tile]["type"]=="decoration":
                         self.decoration.add(tilesprite)
                     elif tiles.TILES[tile]["type"]=="object":

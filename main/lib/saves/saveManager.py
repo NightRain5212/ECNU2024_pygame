@@ -8,6 +8,7 @@ from lib.monsters.Paraflower import Flower
 from lib.monsters.zhiyin_box import Box
 from lib.monsters.Warrant import Warrant
 from lib.monsters.dragon import Dragon
+from lib.monsters.firegiant import Firegiant
 
 save_folder = "save"
 
@@ -125,6 +126,9 @@ def load_game(slot_num, game):
                 enemy = Warrant(level)
             elif enemy_type == 'Dragon':
                 enemy = Dragon(level)
+                level.boss = enemy
+            elif enemy_type == 'Firegiant':
+                enemy = Firegiant(level)
                 level.boss = enemy
 
             if enemy:

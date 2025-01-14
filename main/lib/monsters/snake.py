@@ -120,8 +120,8 @@ class Snake(pg.sprite.Sprite):
                 self.throw_garbage()
                 return
         dist = MOD.check_player_distance(self)
-        if dist < self.detect_range:
-            MOD.update_position(self)
+        # if dist < self.detect_range:
+        MOD.update_position(self)
 
         # 状态机逻辑
         if self.anim_finished: #在同时攻击时无法给出攻击

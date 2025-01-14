@@ -1,0 +1,418 @@
+{
+  "date": "2025-01-15 00:13:45",
+  "level_locks": {
+    "level1": true,
+    "level2": false,
+    "level3": false,
+    "level4": false,
+    "level5": false,
+    "level6": false
+  },
+  "player_lv": 1,
+  "levels": {
+    "level1": {
+      "player": {
+        "hp": 100.0,
+        "mp": 100.0,
+        "position": [
+          3200,
+          750
+        ]
+      },
+      "enemies": [
+        {
+          "type": "Firegiant",
+          "hp": 500,
+          "position": [
+            2640,
+            640
+          ],
+          "active": true
+        }
+      ]
+    },
+    "level2": {
+      "player": {
+        "hp": 100,
+        "mp": 100,
+        "position": [
+          300,
+          200
+        ]
+      },
+      "enemies": [
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            7830,
+            90
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            8550,
+            300
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            9090,
+            330
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            6060,
+            450
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            3780,
+            540
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            6840,
+            540
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            9420,
+            570
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            5550,
+            690
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            2460,
+            720
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            6090,
+            720
+          ],
+          "active": true
+        }
+      ]
+    },
+    "level3": {
+      "player": {
+        "hp": 100,
+        "mp": 100,
+        "position": [
+          300,
+          200
+        ]
+      },
+      "enemies": [
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            210,
+            330
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            4830,
+            360
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            5490,
+            390
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            3840,
+            480
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            2280,
+            510
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            9990,
+            540
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            8400,
+            600
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            7290,
+            690
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            5400,
+            720
+          ],
+          "active": true
+        }
+      ]
+    },
+    "level4": {
+      "player": {
+        "hp": 100,
+        "mp": 100,
+        "position": [
+          300,
+          200
+        ]
+      },
+      "enemies": [
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            7920,
+            240
+          ],
+          "active": true
+        },
+        {
+          "type": "Firegiant",
+          "hp": 500,
+          "position": [
+            10170,
+            240
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            930,
+            420
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            8760,
+            450
+          ],
+          "active": true
+        },
+        {
+          "type": "Warrant",
+          "hp": 300,
+          "position": [
+            5850,
+            570
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            2190,
+            660
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            8100,
+            660
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            3720,
+            720
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            4770,
+            720
+          ],
+          "active": true
+        }
+      ]
+    },
+    "level5": {
+      "player": {
+        "hp": 100,
+        "mp": 100,
+        "position": [
+          300,
+          200
+        ]
+      },
+      "enemies": [
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            7860,
+            330
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            9600,
+            450
+          ],
+          "active": true
+        },
+        {
+          "type": "Dragon",
+          "hp": 800,
+          "position": [
+            10230,
+            450
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            9780,
+            510
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            7260,
+            570
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            2430,
+            600
+          ],
+          "active": true
+        },
+        {
+          "type": "DarkWolf",
+          "hp": 70,
+          "position": [
+            4440,
+            600
+          ],
+          "active": true
+        },
+        {
+          "type": "Snake",
+          "hp": 100,
+          "position": [
+            2040,
+            660
+          ],
+          "active": true
+        },
+        {
+          "type": "Flower",
+          "hp": 50,
+          "position": [
+            1260,
+            690
+          ],
+          "active": true
+        }
+      ]
+    }
+  },
+  "magic_lock": true,
+  "cure_lock": true
+}
