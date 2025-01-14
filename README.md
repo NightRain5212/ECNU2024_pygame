@@ -1,4 +1,4 @@
-# This is a ECNU2024-pygame project
+# This is an ECNU2024-pygame project
 
 ## 如何运行
 
