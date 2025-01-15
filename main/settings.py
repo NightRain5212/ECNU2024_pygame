@@ -22,7 +22,7 @@ TILE_TYPES=66
 SIDESIZE=300
 GAP=30
 #标题
-TITLE = "失落的星辉v1.0"
+TITLE = "The Starry Veil--星辰之幕v1.0"
 
 # 帧率
 FPS = 60
