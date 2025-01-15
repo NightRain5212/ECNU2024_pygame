@@ -124,7 +124,7 @@ class Player(pg.sprite.Sprite):
             attackrect = pg.Rect(self.rect.left - self.attackrange, self.rect.top, self.attackrange, self.rect.height)
         # 伤害判定
         for enemy in self.game.enemies:
-            if attackrect.colliderect(enemy.rect):
+            if attackrect.colliderect(enemy.rect) or self.rect.colliderect(enemy.rect):
                 enemy.hp -= self.atk
                 print(enemy.hp)
 
@@ -330,6 +330,9 @@ class Player(pg.sprite.Sprite):
             self.mp += MP_RECOVER_SPEED
         if self.mp > self.max_mp:
             self.mp = self.max_mp
+
+        if self.rect.bottom >= 900:
+            self.rect.bottom = 900
 
         return self.status
     
