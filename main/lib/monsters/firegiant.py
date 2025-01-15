@@ -48,8 +48,8 @@ class Firegiant(pygame.sprite.Sprite):
         self.height = self.rect.height
         self.onground = False
         # 战斗属性
-        self.hp = 500
         self.max_hp = FIREGIANT_MAXHP
+        self.hp = self.max_hp
         self.atk = FIREGIANT_ATK
         self.active = True
         self.facing_left = False
