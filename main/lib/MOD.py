@@ -288,7 +288,7 @@ def check_fraction_collision(entity,fractions):
     return False
 
 def ensure_entity_in_screen(entity):
-    if entity.rect.y <= 0:
+    if entity.rect.y < 0:
         entity.rect.y = 0
-    if entity.rect.left <=0:
+    if entity.rect.left < 0:
         entity.rect.left = 0 

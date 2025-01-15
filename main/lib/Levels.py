@@ -212,7 +212,7 @@ class Level:
         pg.draw.rect(self.screen,RED,(HP_RECT_X+WIDTH/2,HP_RECT_Y,self.boss_hp_w,HP_BAR_HEIGHT))
         self.boss_hp_text_font=pg.font.Font(FONT,25)
         self.boss_hp_text=self.boss_hp_text_font.render("{:.2f}/{}".format(self.boss.hp,self.boss.max_hp),True,WHITE)
-        self.boss_hp_title=self.boss_hp_text_font.render("DRAGON HP:",True,WHITE)
+        self.boss_hp_title=self.boss_hp_text_font.render("BOSS HP:",True,WHITE)
         self.game.screen.blit(self.boss_hp_title,(HP_RECT_X+WIDTH/2-50,HP_RECT_Y))
         self.game.screen.blit(self.boss_hp_text,(HP_RECT_X+WIDTH/2+HP_BAR_WIDTH/2,HP_RECT_Y))
 
@@ -460,9 +460,9 @@ class Level:
                 self.game.ispaused = False
             keys = pg.key.get_pressed()
             mouses = pg.mouse.get_pressed()
-            self.update(keys, mouses)
             self.draw()
-            pg.display.flip()
+            self.update(keys, mouses)
+            pg.display.update()
 
     def update(self, keys, mouses):
         self.player.update(keys, mouses)
@@ -527,9 +527,9 @@ class Level:
         self.game.screen.blit(self.player.image, self.camera.apply(self.player))
         # 绘制敌人
         for enemy in list(self.enemies):  # 使用list创建副本来遍历
-            enemy.blood.update()
             if enemy.active:
                 self.game.screen.blit(enemy.image, self.camera.apply(enemy))
+                enemy.blood.update()
         # 画npc
         for sprite in self.npcs:
             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
