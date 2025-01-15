@@ -295,7 +295,7 @@ class Dragon(pg.sprite.Sprite):
         dist = self.check_player_distance()
         if dist > self.notice_radius:
             dx = 0
-            dy = 0
+            dy = self.vy
         self.rect.x += dx
         self.rect.y += dy
 

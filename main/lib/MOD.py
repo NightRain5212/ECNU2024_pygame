@@ -175,18 +175,23 @@ def set_position(entity, x, y):
 # 检测碰撞（考虑方向）
 def Check_Tile_Collision(entity, tiles, dx, dy):
     for tile in tiles:
-        if tile.rect.colliderect(entity.rect.x + dx, entity.rect.y-1, entity.rect.width, entity.rect.height):
-           if entity.onground ==True:
-                entity.vy=-15#水平上撞到东西
-                entity.onground=False#直接跳起来
-           else:dx=0 #直到坠落
-        elif tile.rect.colliderect(entity.rect.x, entity.rect.y + dy, entity.rect.width, entity.rect.height):
-            if dy < 0:
+        # 检查水平碰撞
+        if tile.rect.colliderect(entity.rect.x + dx, entity.rect.y, entity.rect.width, entity.rect.height):
+            # if entity.onground:
+            #     entity.vy = -15  # 水平上撞到东西
+            #     entity.onground = False  # 直接跳起来
+            # else:
+                dx = 0  # 直到坠落
+
+        # 检查垂直碰撞
+        if tile.rect.colliderect(entity.rect.x, entity.rect.y + dy, entity.rect.width, entity.rect.height):
+            if dy < 0:  # 向上移动
                 dy = tile.rect.bottom - entity.rect.top
-            elif dy >= 0:#向下
+            elif dy >= 0:  # 向下移动
                 dy = tile.rect.top - entity.rect.bottom
-                entity.onground = True #碰到地上，直接true
-    return dx, dy #若是没碰到，就是原有加速度论处
+                entity.onground = True  # 碰到地上，直接true
+
+    return dx, dy  # 若是没碰到，就是原有加速度论处
 
 # 检测碰撞（不考虑方向）
 def Check_Tile_Collision_no_direction(entity, tiles):
