@@ -189,7 +189,7 @@ class Dragon(pg.sprite.Sprite):
         
         # 创建攻击圆形范围
         attack_center = self.rect.center
-        attack_radius = self.atk1_range/2
+        attack_radius = self.atk1_range
         
         # 计算玩家中心点是否在攻击圆内
         player_center = self.game.player.rect.center
