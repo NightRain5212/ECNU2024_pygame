@@ -252,6 +252,8 @@ class Firegiant(pygame.sprite.Sprite):
         dx = self.vx
         dy = self.vy
         dx, dy = MOD.Check_Tile_Collision(self, self.game.obstacles, dx, dy)
+        if dist > self.detect_range:
+            dx = 0
         self.rect.x += dx
         self.rect.y += dy
 

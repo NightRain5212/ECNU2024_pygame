@@ -67,6 +67,7 @@ class Level:
         self.magic_rect = self.magic_arrow_ready_icon.get_rect()
 
         self.first_load_player=True
+        self.first_load_player_status=True
         self.is_display_rect_borders=False
         self.is_display_player_position=False
         self.backgroundimg = pg.image.load(STARTMENU_BACKGROUND).convert_alpha()
@@ -222,6 +223,12 @@ class Level:
         self.player_position_text=self.player_position_text_font.render(f"(x: {self.player.rect.x}, y: {self.player.rect.y})",True,WHITE)
         self.game.screen.blit(self.player_position_text,(10,MP_RECT_Y+MP_BAR_HEIGHT+40))
 
+    def reset_player_status(self):
+        if self.first_load_player_status:
+            self.player.hp = self.player.max_hp
+            self.player.mp = self.player.max_mp
+            self.first_load_player_status=False
+        
     # 游戏结束
     def gameover(self):
         text = pg.font.Font(FONT3, 200)
@@ -432,6 +439,7 @@ class Level:
     def run(self):
         self.playing = True
         while self.playing:
+            self.reset_player_status()
             # 控制游戏速度
             self.game.clock.tick(FPS)
             # 获取事件
@@ -460,9 +468,10 @@ class Level:
                 self.game.ispaused = False
             keys = pg.key.get_pressed()
             mouses = pg.mouse.get_pressed()
-            self.draw()
+
             self.update(keys, mouses)
-            pg.display.update()
+            self.draw()
+            pg.display.flip()
 
     def update(self, keys, mouses):
         self.player.update(keys, mouses)

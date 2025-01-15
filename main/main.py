@@ -17,7 +17,7 @@ class Game:
             2: False,
             3: False,
             4: False,
-            5: True,
+            5: False,
             6: False
         }
 
