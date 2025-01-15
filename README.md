@@ -1,5 +1,11 @@
 # This is an ECNU2024-pygame project
 
+# 游戏名：The Starry Veil -- 星辰之幕
+
+### 游戏风格
+
+- 2D,横板，闯关，动作。
+
 ## 如何运行
 
 - 直接运行main目录下的main.py即可
@@ -26,10 +32,6 @@
 ![npc](https://s2.loli.net/2025/01/14/OQDC64LZu7fwRN9.png)
 
 # 项目介绍
-
-### 游戏风格
-
-- 2D,横板，闯关，动作。
 
 ## 整体框架
 
