@@ -76,6 +76,7 @@ class MapEditor:
         down_img = pg.transform.scale(down_img, (2*TILE_SIZE, TILE_SIZE))
         left_img = pg.transform.scale(left_img, (TILE_SIZE, TILE_SIZE))
         right_img = pg.transform.scale(right_img, (TILE_SIZE, TILE_SIZE))
+        clear2_img = pg.transform.scale(clear_img, (TILE_SIZE, TILE_SIZE))
         #加载图标图片
         img_tiles=MOD.load_world_usualpic_tileslist()
 
@@ -99,7 +100,7 @@ class MapEditor:
         down_button = MOD.BUTTON(WIDTH - 3 * GAP -2* TILE_SIZE, HEIGTH -2*(GAP + TILE_SIZE) -TILE_SIZE, down_img)
         left_button = MOD.BUTTON(WIDTH -  2*TILE_SIZE, HEIGTH - 2* TILE_SIZE, left_img)
         right_button = MOD.BUTTON(WIDTH -  2*TILE_SIZE, HEIGTH - 2* TILE_SIZE, right_img)
-
+        clear2_button = MOD.BUTTON(WIDTH - 2 * (GAP + TILE_SIZE) - 2 * TILE_SIZE, HEIGTH - GAP - 2 * TILE_SIZE,clear2_img)
         #运行
         while(True):
             CLOCK.tick(FPS)
@@ -172,6 +173,12 @@ class MapEditor:
                         page=1
                 if right_button.Active():
                     self.iseditor=0
+                if clear2_button.Active():
+                    for i, row in enumerate(world_data):
+                        for j, element in enumerate(row):
+                            if element>=0:
+                                if tiles.TILES[element]["type"]=="enemy":  # 假设满足某个条件
+                                    world_data[i][j] = -1
             else:
                 if left_button.Active():
                     self.iseditor=1
@@ -231,6 +238,7 @@ class MapEditor:
                  up_button.draw()
                  down_button.draw()
                  right_button.draw()
+                 clear2_button.draw()
                  #按钮高亮显示
                  pg.draw.rect(self.screen,GREEN,self.button_list[self.current_tile].rect,3)
             else:

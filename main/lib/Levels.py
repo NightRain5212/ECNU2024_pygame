@@ -147,10 +147,6 @@ class Level:
             pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
         for sprite in self.objects:
             pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
-        # for sprite in self.enemymagic:
-        #     pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
-        # for sprite in self.player_magic:
-        #     pg.draw.rect(self.screen,RED,self.camera.apply(sprite),1)
         pg.draw.rect(self.screen, RED, self.camera.apply(self.player), 1)
         for sprite in self.enemies:
             if sprite.alive():
@@ -300,13 +296,145 @@ class Level:
             self.player.hp=self.player.max_hp
             self.player.mp=self.player.max_mp
 
+    # # 游戏主循环
+    # def run(self):
+    #     self.playing = True
+    #     while self.playing:
+    #         # 控制游戏速度
+    #         self.game.clock.tick(FPS)
+    #         # 获取事件
+    #         for event in pg.event.get():
+    #             # 退出游戏
+    #             if event.type == pg.QUIT:
+    #                 if self.playing:
+    #                     self.playing = False
+    #                 MOD.QUIT()
+    #             # 处理事件
+    #             if event.type == pg.KEYDOWN:
+    #                 if event.key == pg.K_ESCAPE:
+    #                     self.game.ispaused = True
+    #                 if event.key == pg.K_f:
+    #                     self.is_display_rect_borders = not self.is_display_rect_borders
+    #                 if event.key == pg.K_p:
+    #                     self.is_display_player_position = not self.is_display_player_position
+    #         keys = pg.key.get_pressed()
+    #         mouses = pg.mouse.get_pressed()
+    #
+    #         # 画图
+    #         self.screen.fill((0, 0, 0))
+    #         MOD.draw_background(self.levelnum, self.backgrounds, self.screen, self.camera.view.x)
+    #         for sprite in self.decoration:
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #         for sprite in self.obstacles:
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #         for sprite in self.water:
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #         for sprite in self.npcs:
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #         for sprite in self.objects:
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #
+    #         # 画角色
+    #         self.game.screen.blit(self.player.image, self.camera.apply(self.player))
+    #         # 更新并绘制敌人
+    #         for enemy in list(self.enemies):  # 使用list创建副本来遍历
+    #             enemy.blood.update()
+    #             if enemy.active:
+    #                 self.game.screen.blit(enemy.image, self.camera.apply(enemy))
+    #
+    #                 # 更新并绘制敌人魔法效果
+    #                 for sprite in list(self.enemymagic):  # 使用list创建副本来遍历
+    #                     if sprite.active:
+    #                         self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #         for sprite in list(self.enemymagic):
+    #             if sprite.active:
+    #                 sprite.update()
+    #
+    #         # 更新玩家技能特效
+    #         for sprite in list(self.player_magic):
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #             sprite.update()
+    #
+    #         # 更新npc
+    #         for sprite in self.npcs:
+    #             sprite.update_animation()
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #             # 更新道具
+    #         for prop in self.prop:
+    #             prop.update()
+    #             if prop.active:
+    #                 self.game.screen.blit(prop.image, self.camera.apply(prop))
+    #
+    #         # 画物体
+    #         for sprite in self.objects:
+    #             self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+    #         # 静态图像最后画
+    #         self.display_lv()
+    #         self.display_hp()
+    #         self.display_mp()
+    #         self.update_player_stats()
+    #         self.display_cure_state()
+    #         self.display_magic_state()
+    #         self.display_boss_hp()
+    #         self.menu_button.draw()
+    #         if self.is_display_rect_borders:
+    #             self.draw_rect_borders()
+    #         if self.is_display_player_position:
+    #             self.display_player_position()
+    #         pg.display.flip()
+    #
+    #         self.player.update(keys, mouses)
+    #         if self.player.hp <= 0:
+    #             self.gameover()
+    #         self.camera.update(self.player)
+    #         for enemy in self.enemies:
+    #             enemy.update()
+    #             # 在小怪类中有检查生命值，并且自己投递废物(子类以及自身)投到garbage_bin行为
+    #         for garbage in list(self.garbage_bin):
+    #             garbage.kill()
+    #
+    #         # 检查npc碰撞
+    #         if self.check_npc_collision():
+    #             if self.npc.name == "Eilin":
+    #                 self.game.cure_lock = False
+    #                 if self.npc_plot.active:
+    #                     self.npc_plot.play_plot()
+    #             elif self.npc.name == "Renault":
+    #                 self.game.magic_lock = False
+    #                 if self.npc_plot.active:
+    #                     self.npc_plot.play_plot()
+    #
+    #         # 检查object碰撞
+    #         if MOD.check_object_collision(self.player, self.objects):
+    #             pass
+    #
+    #         # 更新技能锁
+    #         self.update_magic_lock()
+    #
+    #         # 检查传送碰撞
+    #         self.check_tp()
+    #
+    #         # 处理按钮事件
+    #         if self.menu_button.Active():
+    #             self.game.ispaused = True
+    #             self.pauseMenu.run()
+    #             self.game.ispaused = False
+    #         # 暂停游戏
+    #         if self.game.ispaused:
+    #             self.pauseMenu.run()
+    #             self.game.ispaused = False
+    #
+    #         # 检查游戏胜利
+    #         self.check_game_win()
+
     # 游戏主循环
+    
     def run(self):
-        self.playing=True
+        self.playing = True
         while self.playing:
-            #控制游戏速度
+            # 控制游戏速度
             self.game.clock.tick(FPS)
-            #获取事件
+            # 获取事件
             for event in pg.event.get():
                 # 退出游戏
                 if event.type == pg.QUIT:
@@ -321,106 +449,7 @@ class Level:
                         self.is_display_rect_borders = not self.is_display_rect_borders
                     if event.key == pg.K_p:
                         self.is_display_player_position = not self.is_display_player_position
-            keys = pg.key.get_pressed()
-            mouses = pg.mouse.get_pressed()
-
-            #画图
-            self.screen.fill((0, 0, 0))
-            MOD.draw_background(self.levelnum, self.backgrounds, self.screen, self.camera.view.x)
-            for sprite in self.decoration:
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-            for sprite in self.obstacles:
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-            for sprite in self.water:
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-            for sprite in self.npcs:
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-            for sprite in self.objects:
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-
-
-            #画角色
-            self.game.screen.blit(self.player.image, self.camera.apply(self.player))
-            # 更新并绘制敌人
-            for enemy in list(self.enemies):  # 使用list创建副本来遍历
-                enemy.blood.update()
-                if enemy.active:
-                    self.game.screen.blit(enemy.image, self.camera.apply(enemy))
-
-                    # 更新并绘制敌人魔法效果
-                    for sprite in list(self.enemymagic):  # 使用list创建副本来遍历
-                        if sprite.active:
-                            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-            for sprite in list(self.enemymagic):
-                if sprite.active:
-                    sprite.update()
-            
-            # 更新玩家技能特效
-            for sprite in list(self.player_magic):
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-                sprite.update()
-
-            # 更新npc
-            for sprite in self.npcs:
-                sprite.update_animation()
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-                # 更新道具
-            for prop in self.prop:
-                    prop.update()
-                    if prop.active:
-                        self.game.screen.blit(prop.image, self.camera.apply(prop))
-
-            #画物体
-            for sprite in self.objects:
-                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
-            #静态图像最后画
-            self.display_lv()
-            self.display_hp()
-            self.display_mp()
-            self.update_player_stats()
-            self.display_cure_state()
-            self.display_magic_state()
-            self.display_boss_hp()
-            self.menu_button.draw()
-            if self.is_display_rect_borders:    
-                self.draw_rect_borders()
-            if self.is_display_player_position:
-                self.display_player_position()
-            pg.display.flip()
-
-
-            self.player.update(keys,mouses)
-            if self.player.hp<=0:
-                self.gameover()
-            self.camera.update(self.player)
-            for enemy in self.enemies:
-                enemy.update()
-                # 在小怪类中有检查生命值，并且自己投递废物(子类以及自身)投到garbage_bin行为
-            for garbage in list(self.garbage_bin):
-                garbage.kill()
-
-            # 检查npc碰撞
-            if self.check_npc_collision():
-                if self.npc.name == "Eilin":
-                    self.game.cure_lock = False
-                    if self.npc_plot.active:
-                        self.npc_plot.play_plot()
-                elif self.npc.name == "Renault":
-                    self.game.magic_lock = False
-                    if self.npc_plot.active:
-                        self.npc_plot.play_plot()
-
-            # 检查object碰撞
-            if MOD.check_object_collision(self.player,self.objects):
-                pass
-
-            # 更新技能锁
-            self.update_magic_lock()
-
-            # 检查传送碰撞
-            self.check_tp()
-
-            #处理按钮事件
+            # 处理按钮事件
             if self.menu_button.Active():
                 self.game.ispaused = True
                 self.pauseMenu.run()
@@ -429,11 +458,103 @@ class Level:
             if self.game.ispaused:
                 self.pauseMenu.run()
                 self.game.ispaused = False
+            keys = pg.key.get_pressed()
+            mouses = pg.mouse.get_pressed()
+            self.update(keys, mouses)
+            self.draw()
+            pg.display.flip()
 
-            # 检查游戏胜利
-            self.check_game_win()
+    def update(self, keys, mouses):
+        self.player.update(keys, mouses)
+        if self.player.hp <= 0:
+            self.gameover()
+        self.update_player_stats()
+        self.camera.update(self.player)
+        # 检查传送碰撞
+        self.check_tp()
+        # 检查npc碰撞
+        if self.check_npc_collision():
+            if self.npc.name == "Eilin":
+                self.game.cure_lock = False
+                if self.npc_plot.active:
+                    self.npc_plot.play_plot()
+            elif self.npc.name == "Renault":
+                self.game.magic_lock = False
+                if self.npc_plot.active:
+                    self.npc_plot.play_plot()
+        # 更新技能锁
+        self.update_magic_lock()
+        # 检查object碰撞
+        if MOD.check_object_collision(self.player, self.objects):
+            pass
+        # 更新玩家技能特效
+        for sprite in list(self.player_magic):
+            sprite.update()
+        # 更新敌人
+        for enemy in self.enemies:
+            enemy.update()
+            enemy.blood.update()
+        # 更新魔法
+        for sprite in list(self.enemymagic):
+            if sprite.active:
+                sprite.update()
+        # 在小怪类中有检查生命值，并且自己投递废物(子类以及自身)投到garbage_bin行为
+        for garbage in list(self.garbage_bin):
+            garbage.kill()
+        for prop in self.prop:
+            prop.update()
+        # 更新npc
+        for sprite in self.npcs:
+            sprite.update_animation()
+        # 检查游戏胜利
+        self.check_game_win()
 
-
+    def draw(self):
+        # 画图
+        self.screen.fill((0, 0, 0))
+        MOD.draw_background(self.levelnum, self.backgrounds, self.screen, self.camera.view.x)
+        for sprite in self.decoration:
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        for sprite in self.obstacles:
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        for sprite in self.water:
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        for sprite in self.npcs:
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        for sprite in self.objects:
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        # 画角色
+        self.game.screen.blit(self.player.image, self.camera.apply(self.player))
+        # 绘制敌人
+        for enemy in list(self.enemies):  # 使用list创建副本来遍历
+            enemy.blood.update()
+            if enemy.active:
+                self.game.screen.blit(enemy.image, self.camera.apply(enemy))
+        # 画npc
+        for sprite in self.npcs:
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        # 绘制玩家技能特效
+        for sprite in list(self.player_magic):
+            self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        # 绘制敌人魔法效果
+        for sprite in list(self.enemymagic):  # 使用list创建副本来遍历
+            if sprite.active:
+                self.game.screen.blit(sprite.image, self.camera.apply(sprite))
+        for prop in self.prop:
+            if prop.active:
+                self.game.screen.blit(prop.image, self.camera.apply(prop))
+        # 静态图像最后画
+        self.display_lv()
+        self.display_hp()
+        self.display_mp()
+        self.display_cure_state()
+        self.display_magic_state()
+        self.display_boss_hp()
+        self.menu_button.draw()
+        if self.is_display_rect_borders:
+            self.draw_rect_borders()
+        if self.is_display_player_position:
+            self.display_player_position()
 
     # 检查游戏胜利
     def check_game_win(self):

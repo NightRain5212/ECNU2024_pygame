@@ -49,24 +49,24 @@ class Firegiant(pygame.sprite.Sprite):
         self.onground = False
         # 战斗属性
         self.hp = 500
-        self.max_hp = 500
-        self.atk = 40
+        self.max_hp = FIREGIANT_MAXHP
+        self.atk = FIREGIANT_ATK
         self.active = True
         self.facing_left = False
 
         # 分离不同技能的冷却时间和计时器
-        self.stract_cd = 15000
-        self.fireopen_cd = 9000#三种火焰共用一个时间
+        self.stract_cd = FIREGIANT_STRACT_CD
+        self.fireopen_cd = FIREGIANT_FIREOPEN_CD#三种火焰共用一个时间
 
         
         self.last_stract = 0  # stract的上次使用时间
         self.last_fireopen = 0  # fireopen的上次使用时间
 
         # 行为控制
-        self.attack_range = 300
-        self.detect_range = 500
+        self.attack_range = FIREGIANT_ATTACKRANGE
+        self.detect_range = FIREGIANT_DETECTRANGE
         self.last_attack = 0
-        self.speedx = 2
+        self.speedx = FIREGIANT_SPEED
         self.vx = 0
         self.vy = 0
         # 创建遮罩
