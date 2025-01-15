@@ -331,7 +331,7 @@ class Player(pg.sprite.Sprite):
         if self.mp > self.max_mp:
             self.mp = self.max_mp
 
-        if self.rect.bottom >= 900:
+        if self.rect.bottom > 900:
             self.rect.bottom = 900
 
         return self.status
