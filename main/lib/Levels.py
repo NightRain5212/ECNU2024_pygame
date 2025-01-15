@@ -225,6 +225,10 @@ class Level:
 
     def reset_player_status(self):
         if self.first_load_player_status:
+            self.player.lv = self.game.player_lv
+            self.player.max_hp = MAXHP * (1 + HPRATE_PER_LV * (self.player.lv - 1))
+            self.player.max_mp = MAXMP * (1 + MPRATE_PER_LV * (self.player.lv - 1))
+            self.player.atk = ATK_PER_FAMRE * (1 + ATKRATE_PER_LV * (self.player.lv - 1))
             self.player.hp = self.player.max_hp
             self.player.mp = self.player.max_mp
             self.first_load_player_status=False
